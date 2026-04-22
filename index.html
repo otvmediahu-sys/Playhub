@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Global Movie Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0d0d0d;
+    color: white;
+}
+
+header {
+    background: linear-gradient(90deg, #ff0000, #800000);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 { margin: 0; }
+
+.search {
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card h3 {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎬 Global Movie Hub</h1>
+<p>Discover latest movies + trailers + legal streaming links</p>
+<input class="search" id="search" placeholder="Search movies..." onkeyup="searchMovies()">
+</header>
+
+<div class="container" id="movies"></div>
+
+<script>
+
+const API_KEY = "YOUR_TMDB_API_KEY";
+
+async function loadMovies() {
+    const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayMovies(data.results);
+}
+
+function displayMovies(movies) {
+    const container = document.getElementById("movies");
+    container.innerHTML = "";
+
+    movies.forEach(movie => {
+        const poster = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        : "";
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+            <img src="${poster}">
+            <h3>${movie.title}</h3>
+            <a class="btn" href="https://www.youtube.com/results?search_query=${movie.title}+trailer" target="_blank">▶ Watch Trailer</a>
+            <a class="btn" href="https://www.google.com/search?q=${movie.title}+where+to+watch" target="_blank">📺 Where to Watch</a>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+async function searchMovies() {
+    const query = document.getElementById("search").value;
+    if (!query) return loadMovies();
+
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayMovies(data.results);
+}
+
+loadMovies();
+
+</script>
+
+</body>
+  </html>

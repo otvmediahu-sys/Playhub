@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Global Movie Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0b0b0b;
+    color:white;
+}
+
+header {
+    background: linear-gradient(90deg, #ff0000, #550000);
+    padding:20px;
+    text-align:center;
+}
+
+h1 { margin:0; }
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:15px;
+    padding:20px;
+}
+
+.card {
+    background:#1c1c1c;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.card h3 {
+    padding:10px;
+    margin:0;
+}
+
+.video {
+    width:100%;
+    height:200px;
+    border:none;
+}
+
+.desc {
+    font-size:12px;
+    padding:10px;
+    color:#ccc;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎬 Global Movie Hub</h1>
+<p>Watch free legal movies instantly</p>
+</header>
+
+<div class="container">
+
+<!-- MOVIE 1 -->
+<div class="card">
+<h3>Nosferatu (1922)</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/FC6jFoYm3xs"
+allowfullscreen></iframe>
+<p class="desc">Classic horror film (public domain)</p>
+</div>
+
+<!-- MOVIE 2 -->
+<div class="card">
+<h3>Metropolis (1927)</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/5BBn1t7tKQY"
+allowfullscreen></iframe>
+<p class="desc">Sci-fi silent masterpiece</p>
+</div>
+
+<!-- MOVIE 3 -->
+<div class="card">
+<h3>The General (1926)</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/8Q7fJ8c4F6k"
+allowfullscreen></iframe>
+<p class="desc">Buster Keaton comedy classic</p>
+</div>
+
+<!-- MOVIE 4 -->
+<div class="card">
+<h3>Charlie Chaplin - The Kid</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/Zw0pHTZx5eY"
+allowfullscreen></iframe>
+<p class="desc">Charlie Chaplin emotional classic</p>
+</div>
+
+<!-- MOVIE 5 -->
+<div class="card">
+<h3>Night of the Living Dead</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/pElSu_ECJGM"
+allowfullscreen></iframe>
+<p class="desc">Zombie horror classic</p>
+</div>
+
+<!-- MOVIE 6 -->
+<div class="card">
+<h3>A Trip to the Moon (1902)</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/7JDaOOw0MEE"
+allowfullscreen></iframe>
+<p class="desc">First sci-fi film in history</p>
+</div>
+
+<!-- MOVIE 7 -->
+<div class="card">
+<h3>Public Domain Film Collection</h3>
+<iframe class="video"
+src="https://www.youtube.com/embed/videoseries?list=PL8F3A3C6B5C8E3C0D"
+allowfullscreen></iframe>
+<p class="desc">Free legal movie playlist</p>
+</div>
+
+</div>
+
+</body>
+  </html>
